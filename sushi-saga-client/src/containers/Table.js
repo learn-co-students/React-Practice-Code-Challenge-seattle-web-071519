@@ -8,21 +8,21 @@ const Table = (props) => {
     })
   }
 
+  let eaten = props.sushiList.filter(sushi => {
+    console.log(sushi.isEaten)
+    if (sushi.isEaten == true) {
+        return sushi 
+    }
+  })
+
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${props.wallet} remaining!
       </h1>
       <div className="table">
         <div className="stack">
-          {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
-          }
+          {renderPlates(eaten)}
         </div>
       </div>
     </Fragment>
